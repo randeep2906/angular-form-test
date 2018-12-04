@@ -1,0 +1,73 @@
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+  <div class = 'container'>
+    <div class="row">
+      <div class="col-md-12 card">
+        <h2 class="underlined">Reporter/Main Contact Info</h2>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Reported  By</h3>
+          </div>
+          <div class="form-group has-feedback">
+            <label for="name" class="control-label">Last Name</label>
+            <input id="name" #name="ngModel" type="text" class="form-control"  maxLength="90" [(ngModel)]="maincontact.lastName" name="name" placeholder="Enter last name here" data-error="Please enter your name." />
+            <span class="icon icon-attention form-control-feedback" aria-hidden="true" ></span><div class="help-block with-errors"></div>
+            <!--<p> {{name}}</p>-->
+          </div>
+          <div class="panel-heading">
+            <h3 class="panel-title">Main Contact</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="toggle-title">Who will be our main contact for this claim?</div>
+              <div class="btn-group btn-group-toggle" role="group">
+                <button type="button" class="btn btn-secondary" (click)="iWill($event)">I Will</button>
+                <button type="button" class="btn btn-secondary" (click)="someOneElse($event)">Someone Else</button>
+              </div>
+            </div>
+          </div>
+          <!-- i will - Last name -->
+
+          <div class="form-group has-feedback" id="panel_iWill">
+            <label for="nameL" class="control-label">Last Name</label>
+            <input id="nameL" #nameL="ngModel" type="text" class="form-control" [(ngModel)]="maincontact.lastName" name="nameL" placeholder="Enter last name here" data-error="Please enter your name." />
+            <span class="icon icon-attention form-control-feedback" aria-hidden="true" ></span><div class="help-block with-errors"></div>
+            <!--<p>{{nameL}}</p>-->
+
+          </div>
+          <!-- Someone Else label - Last Name-->
+
+          <div  class="form-group has-feedback" id="panel_someoneelse" >
+            <label for="lname" class="control-label">Last Name</label>
+            <input id="lname"  class="form-control" [formControl]="lname" [(ngModel)]="maincontact.lastName" minLength="1"  maxLength="90" name="lname"  data-error="Please enter your name."  required/>
+            <!-- error-->
+
+            <!-- error -->
+            <!-- <span class="icon icon-attention form-control-feedback" aria-hidden="true" ></span><div class="help-block with-errors"></div>-->
+
+            {{maincontact.lastName}}
+
+          </div>
+
+          <!-- Role Dropdown -->
+          <div class="col-sm-6">
+            <div class="form-group has-feedback" id="'panel_dropdown">
+              <div class="select-container ">
+                <select name="role" [(ngModel)]="claim.mainContactType" class="form-control" required>
+                  <option *ngFor="let r of res">{{ r.displayKey }}</option>
+                </select>
+              </div>
+            </div>
+            <!-- {{role}}-->
+          </div>
+          <!-- Button Next -->
+          <div class="parentButton">
+            <button type="submit" id='next'  class="btn btn-primary btn-lg btn-block">
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div></form>
+
