@@ -1,0 +1,66 @@
+<form (ngSubmit)="onSubmit()" #f1="ngForm">
+  <div class="form-group">
+    <label for="lastname">Last Name</label>
+    <input class="form-control" name="lastname" id="lastname" required maxlength="90"
+           [(ngModel)]="model.f1"  #lastname="ngModel"/>
+    <div class="help-block with-errors">
+      <div  *ngIf="lastname?.errors && (lastname.dirty || lastname.touched)">
+        <p *ngIf="lastname?.errors.required">Last Name is required</p>
+        <p *ngIf="lastname?.errors.maxlength">Max Length exceeded</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="ssn">Soc</label>
+    <input class="form-control" name = 'ssn' id="ssn" maxlength="11" [value] ="99" [(ngModel)]="model.ssn"  #ssn="ngModel" />
+   <!-- <div [hidden]="ssn.valid || ssn.pristine"
+         class="alert alert-danger">
+      Name is required
+    </div>-->
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 button-align">
+      <div class="form-group">
+        <div class="toggle-title">Did this</div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary"><input type="radio" name="l1" id="l2" [(ngModel)]="model.f3" #h="ngModel" value=true autocomplete="off">Yes</label>
+          <label class="btn btn-secondary active"><input type="radio" name="l1" id="l3"  [(ngModel)]="model.f3" #h="ngModel" value=false autocomplete="off">No</label>
+        </div>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 button-align">
+      <div class="form-group">
+        <div class="toggle-title">Did </div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary"><input type="radio" name="t" class='c' id="e1"
+                                                         [(ngModel)]="model.f4" #ad='ngModel'  [value]="'Yes'" autocomplete="off">Yes</label>
+          <label class="btn btn-secondary"><input type="radio" name="t" class='c'  id="e2"
+                                                  [(ngModel)]="model.f4"  #ad='ngModel' [value]="'No'" autocomplete="off">No</label>
+          <label class="btn btn-secondary"><input type="radio" name="t" class='c'  id="e3"
+                                                  [(ngModel)]="model.f4"  #ad='ngModel' [value]="'Unknown'" autocomplete="off">Unknown</label>
+        </div>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 button-align">
+      <div class="form-group">
+        <div class="toggle-title">Di</div>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary"><input type="radio" name="v" id="v1" [(ngModel)]="model.f5" #g="ngModel" value="Yes" autocomplete="off">Yes</label>
+          <label class="btn btn-secondary active"><input type="radio" name="v" id="v2" [(ngModel)]="model.f5" #g="ngModel" value="No" autocomplete="off">No</label>
+          <label class="btn btn-secondary"><input type="radio" name="v" id="v3"  [(ngModel)]="model.f5" #g="ngModel" value="Unknown" autocomplete="off">Unknown</label>
+        </div>
+        <div class="help-block with-errors"></div>
+      </div>
+    </div>
+  </div>
+</form>
